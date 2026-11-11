@@ -1815,3 +1815,241 @@ p { line-height: var(--lh-relaxed); }
   }
   .footer__classification { color: red; }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE FIX v2.1
+   Patch untuk mobile responsiveness — append di akhir styles.css
+   Kartika Cyber Hackathon 2026 · Garuda Sentinel
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─── FIX 1: Global overflow safety ─── */
+html {
+  overflow-x: hidden;
+}
+
+/* ─── FIX 2: Hero eyebrow — allow text wrap ─── */
+.hero__eyebrow {
+  flex-wrap: wrap;
+  line-height: 1.5;
+  text-align: left;
+}
+
+/* ─── FIX 3: Dashboard mockup — kill 3D transform below desktop ─── */
+@media (max-width: 1023px) {
+  .dashboard-mockup,
+  .dashboard-mockup:hover {
+    transform: none;
+  }
+}
+
+/* ─── FIX 4: Mockup body — proper mobile-first layout ─── */
+.mockup__body {
+  grid-template-columns: 1fr;
+  min-height: 260px;
+}
+.mockup__sidebar {
+  display: none;
+}
+@media (min-width: 480px) {
+  .mockup__body {
+    grid-template-columns: 120px 1fr;
+    min-height: 320px;
+  }
+  .mockup__sidebar {
+    display: flex;
+  }
+}
+
+/* ─── FIX 5: Mockup chrome — prevent title overflow ─── */
+.mockup__chrome {
+  overflow: hidden;
+}
+.mockup__title {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: center;
+}
+
+/* ─── FIX 6: Access card — prevent <pre> overflow ─── */
+.access-card {
+  min-width: 0;
+}
+.access-card__code {
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+.access-card__code code {
+  white-space: inherit;
+  word-break: inherit;
+}
+
+/* ─── FIX 7: All grid items — allow shrink ─── */
+.feature-card,
+.perf-card,
+.arch-layer,
+.metric,
+.founder__content,
+.founder__photo {
+  min-width: 0;
+}
+
+/* ─── FIX 8: Hero grid gap — reduce on mobile ─── */
+.hero__grid {
+  gap: var(--sp-7);           /* 32px mobile */
+}
+@media (min-width: 768px) {
+  .hero__grid {
+    gap: var(--sp-9);         /* 48px tablet */
+  }
+}
+@media (min-width: 1024px) {
+  .hero__grid {
+    gap: var(--sp-12);        /* 96px desktop */
+  }
+}
+
+/* ─── FIX 9: Section padding — mobile-first ─── */
+.section {
+  padding: var(--sp-10) 0;    /* 64px mobile */
+}
+@media (min-width: 768px) {
+  .section {
+    padding: var(--sp-12) 0;  /* 96px tablet */
+  }
+}
+@media (min-width: 1024px) {
+  .section {
+    padding: var(--sp-13) 0;  /* 128px desktop */
+  }
+}
+
+/* ─── FIX 10: Hero padding — mobile-first ─── */
+.hero {
+  padding: var(--sp-9) 0 var(--sp-10);    /* 48px 0 64px mobile */
+}
+@media (min-width: 1024px) {
+  .hero {
+    padding: var(--sp-12) 0 var(--sp-13);  /* 96px 0 128px desktop */
+  }
+}
+
+/* ─── FIX 11: Hero title — better scaling on small screens ─── */
+@media (max-width: 480px) {
+  .hero__title {
+    font-size: clamp(1.85rem, 8vw, 2.25rem);
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+  }
+}
+@media (max-width: 360px) {
+  .hero__title {
+    font-size: 1.75rem;
+  }
+}
+
+/* ─── FIX 12: Section header margin — reduce on mobile ─── */
+.section-header {
+  margin-bottom: var(--sp-8);   /* 40px mobile */
+}
+@media (min-width: 768px) {
+  .section-header {
+    margin-bottom: var(--sp-10); /* 64px tablet+ */
+  }
+}
+
+/* ─── FIX 13: Founder section — tighter gap on mobile ─── */
+.founder__inner {
+  gap: var(--sp-6);              /* 24px mobile */
+}
+@media (min-width: 768px) {
+  .founder__inner {
+    gap: var(--sp-10);           /* 64px tablet+ */
+  }
+}
+
+/* ─── FIX 14: Metrics grid — single column on very small screens ─── */
+@media (max-width: 359px) {
+  .metrics__grid {
+    grid-template-columns: 1fr;
+  }
+  .mockup__stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ─── FIX 15: Access card code — smaller font on mobile ─── */
+@media (max-width: 480px) {
+  .access-card__code {
+    font-size: 11px;
+    padding: var(--sp-3);
+    line-height: 1.6;
+  }
+}
+
+/* ─── FIX 16: Tech strip — adjust sizing on mobile ─── */
+@media (max-width: 480px) {
+  .tech-badge {
+    font-size: 0.75rem;
+    padding: 6px 12px;
+  }
+  .tech-badge__icon {
+    width: 14px;
+    height: 14px;
+  }
+  .tech-strip__label {
+    font-size: 0.65rem;
+    letter-spacing: 0.06em;
+    text-align: center;
+    line-height: 1.5;
+  }
+}
+
+/* ─── FIX 17: Hero CTA — reinforce full width on mobile ─── */
+@media (max-width: 480px) {
+  .hero__cta-group {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--sp-3);
+  }
+  .hero__cta-group .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ─── FIX 18: Navbar — tighter padding on very small screens ─── */
+@media (max-width: 359px) {
+  :root {
+    --container-pad: 14px;
+  }
+  .navbar__logo-text {
+    font-size: 0.68rem;
+    letter-spacing: 0.04em;
+  }
+}
+
+/* ─── FIX 19: Touch & accessibility ─── */
+a,
+button {
+  -webkit-tap-highlight-color: rgba(22, 163, 74, 0.12);
+}
+.btn {
+  min-height: 44px;
+}
+.btn--sm {
+  min-height: 36px;
+}
+
+/* ─── FIX 20: Prevent iOS auto-zoom on form inputs (future-proof) ─── */
+@media (max-width: 767px) {
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+  }
+}
