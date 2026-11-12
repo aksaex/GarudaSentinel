@@ -7,8 +7,8 @@
   <!-- ══════════════════════════════════════════════
        PRIMARY META
        ══════════════════════════════════════════════ -->
-  <title>Garuda Sentinel — Deteksi Intrusi Tanpa Koneksi, Di Edge</title>
-  <meta name="description" content="Dual-engine ML mendeteksi known & zero-day threats dalam <15ms — berjalan 100% offline di perangkat taktis TNI AD. Kartika Cyber Hackathon 2026.">
+  <title>Garuda Sentinel — Tactical Air-Gapped Edge SOC & Zero-Day IDS</title>
+  <meta name="description" content="Tactical Air-Gapped Edge SOC & Zero-Day Intrusion Detection System untuk TNI AD. Dual-engine ML, Explainable AI berbahasa Indonesia, deploy <2 menit. File uji tersedia untuk juri. Kartika Cyber Hackathon 2026.">
   <meta name="author" content="Muh Aksa">
   <meta name="keywords" content="IDS, intrusion detection, edge computing, TNI AD, PUSSIBERAD, XGBoost, CatBoost, Isolation Forest, SHAP, air-gapped, cyber defense, Kartika Cyber Hackathon">
   <meta name="theme-color" content="#16A34A">
@@ -18,8 +18,8 @@
        OPEN GRAPH
        ══════════════════════════════════════════════ -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Garuda Sentinel — Deteksi Intrusi Tanpa Koneksi, Di Edge">
-  <meta property="og:description" content="Dual-engine ML mendeteksi known & zero-day threats dalam <15ms — berjalan 100% offline di perangkat taktis TNI AD.">
+  <meta property="og:title" content="Garuda Sentinel — Tactical Air-Gapped Edge SOC">
+  <meta property="og:description" content="Zero-Day Intrusion Detection tanpa koneksi internet. Dual-engine ML + Explainable AI. Deploy <2 menit.">
   <meta property="og:image" content="aksa.jpg">
   <meta property="og:locale" content="id_ID">
 
@@ -27,8 +27,8 @@
        TWITTER CARD
        ══════════════════════════════════════════════ -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Garuda Sentinel — Edge-Native IDS">
-  <meta name="twitter:description" content="Dual-engine ML. 100% offline. Air-gapped ready.">
+  <meta name="twitter:title" content="Garuda Sentinel — Tactical Air-Gapped Edge SOC">
+  <meta name="twitter:description" content="Zero-Day IDS. 100% offline. Air-gapped ready.">
   <meta name="twitter:image" content="aksa.jpg">
 
   <!-- ══════════════════════════════════════════════
@@ -56,7 +56,7 @@
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- ══════════════════════════════════════════════
-       NAVBAR (Sticky + Glassmorphism on scroll)
+       NAVBAR
        ══════════════════════════════════════════════ -->
   <header class="navbar" id="navbar">
     <div class="navbar__inner">
@@ -76,6 +76,7 @@
           <li><a href="#fitur" class="navbar__link">Fitur</a></li>
           <li><a href="#arsitektur" class="navbar__link">Arsitektur</a></li>
           <li><a href="#performa" class="navbar__link">Performa</a></li>
+          <li><a href="#keunggulan" class="navbar__link">Keunggulan</a></li>
           <li><a href="#akses" class="navbar__link">Akses</a></li>
         </ul>
       </nav>
@@ -131,9 +132,10 @@
             </h1>
 
             <p class="hero__lead">
-              Dual-engine ML mendeteksi <em>known</em> &amp; <em>zero-day threats</em>
-              dalam &lt;15ms — berjalan 100% offline di perangkat taktis TNI AD.
-              Tanpa cloud, tanpa kompromi.
+              <strong>Tactical Air-Gapped Edge SOC</strong> yang mendeteksi
+              <em>known</em> &amp; <em>zero-day threats</em> dalam &lt;15ms —
+              berjalan 100% offline di perangkat taktis TNI AD.
+              Dual-engine ML, tanpa cloud, tanpa kompromi.
             </p>
 
             <div class="hero__cta-group">
@@ -151,6 +153,21 @@
               </a>
             </div>
 
+            <!-- NEW: Hint download untuk juri -->
+            <a href="https://github.com/aksaex/GarudaSentinel/raw/main/juri_test_stream.csv"
+               class="hero__test-hint"
+               download
+               aria-label="Download file uji CSV untuk dewan juri">
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M8 2V10M8 10L4 6M8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2 12V13C2 13.5523 2.44772 14 3 14H13C13.5523 14 14 13.5523 14 13V12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+              <span>Untuk Juri: <strong>Download File Uji (CSV)</strong></span>
+              <svg class="hero__test-hint-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+
             <ul class="hero__meta" aria-label="Karakteristik sistem">
               <li class="hero__meta-item">
                 <span class="hero__meta-dot" aria-hidden="true"></span>
@@ -167,7 +184,7 @@
             </ul>
           </div>
 
-          <!-- ──────────── DASHBOARD MOCKUP (CSS-styled in Stage 2) ──────────── -->
+          <!-- ──────────── DASHBOARD MOCKUP ──────────── -->
           <div class="hero__visual">
             <div class="dashboard-mockup" role="img" aria-label="Pratinjau antarmuka GARUDA SENTINEL Command Center">
 
@@ -206,7 +223,7 @@
                   <div class="mockup__stats">
                     <div class="mockup__stat">
                       <span class="mockup__stat-label">DETECTION RATE</span>
-                      <span class="mockup__stat-value mockup__stat-value--green">99.2%</span>
+                      <span class="mockup__stat-value mockup__stat-value--green">99.0%</span>
                     </div>
                     <div class="mockup__stat">
                       <span class="mockup__stat-label">ACTIVE RULES</span>
@@ -428,23 +445,25 @@
             </ul>
           </article>
 
+          <!-- Card 03 — REVISED: One-Click Threat Isolation (operational) -->
           <article class="feature-card">
             <div class="feature-card__icon" aria-hidden="true">
               <svg viewBox="0 0 32 32" fill="none">
-                <path d="M16 4L27 10V16C27 22 22 26 16 28C10 26 5 22 5 16V10L16 4Z" stroke="currentColor" stroke-width="2"/>
-                <path d="M11 16L15 20L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="16" cy="16" r="11" stroke="currentColor" stroke-width="2"/>
+                <path d="M16 5V9M16 23V27M5 16H9M23 16H27" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M12 16L15 19L21 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
             <span class="feature-card__index">03</span>
-            <h3 class="feature-card__title">One-Click Tactical Isolation</h3>
+            <h3 class="feature-card__title">One-Click Threat Isolation</h3>
             <p class="feature-card__desc">
-              Deployment penuh dalam &lt;2 menit via Docker Compose. Tidak perlu
-              install Python, tidak perlu dependency management. Langsung
-              operasional.
+              Deteksi tanpa tindakan adalah sia-sia. Saat ancaman diprediksi dengan
+              confidence tinggi, sistem otomatis mengisolasi IP/subnet penyerang —
+              <strong>satu klik, tanpa hentikan operasi</strong>.
             </p>
             <ul class="feature-card__tags">
-              <li>Docker</li>
-              <li>Zero-Config</li>
+              <li>Active Response</li>
+              <li>Real-time Blocking</li>
             </ul>
           </article>
 
@@ -491,14 +510,16 @@
 
         <div class="architecture-flow">
 
+          <!-- L1 — REVISED: Async Ingestion -->
           <div class="arch-layer">
             <span class="arch-layer__index">L1</span>
             <h3 class="arch-layer__title">Packet Ingestion</h3>
             <p class="arch-layer__desc">
-              Zeek / CICFlowMeter menangkap <em>live traffic</em> dan
-              mengekstraksi fitur <em>flow</em> secara real-time.
+              Zeek / CICFlowMeter menangkap <em>live traffic</em> dan mengekstraksi
+              fitur <em>flow</em> secara real-time. Pipeline <strong>asynchronous
+              decoupled</strong> — UI tetap responsif meski terjadi serangan massal.
             </p>
-            <span class="arch-layer__tech">Zeek · CICFlowMeter</span>
+            <span class="arch-layer__tech">Zeek · CICFlowMeter · Async Queue</span>
           </div>
 
           <div class="arch-layer">
@@ -601,20 +622,209 @@
       </div>
     </section>
 
-    <!-- ──────────────────────────────────────────
-         AKSES / DEPLOYMENT
-         ────────────────────────────────────────── -->
-    <section class="section section--alt" id="akses">
+    <!-- ══════════════════════════════════════════════
+         NEW SECTION: MATRIKS KEUNGGULAN KOMPETITIF
+         ══════════════════════════════════════════════ -->
+    <section class="section section--alt" id="keunggulan">
       <div class="container">
 
         <header class="section-header">
-          <span class="section-eyebrow">04 · Akses</span>
+          <span class="section-eyebrow">04 · Keunggulan</span>
+          <h2 class="section-title">Bukan IDS biasa. Bukan cloud SIEM.</h2>
+          <p class="section-lead">
+            Garuda Sentinel lahir dari celah yang ditinggalkan solusi konvensional:
+            tidak bisa offline, tidak bisa jelaskan keputusan, tidak cocok untuk edge.
+            Berikut posisi kami terhadap standar industri.
+          </p>
+        </header>
+
+        <div class="matrix" role="table" aria-label="Perbandingan Garuda Sentinel dengan solusi IDS lain">
+
+          <!-- Header Row (Desktop only) -->
+          <div class="matrix__header" role="row">
+            <div class="matrix__cell matrix__cell--label" role="columnheader">Aspek</div>
+            <div class="matrix__cell matrix__cell--featured" role="columnheader">
+              <span class="matrix__brand-mark" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M12 3L20 7V14C20 18 16 21 12 21C8 21 4 18 4 14V7L12 3Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                  <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                </svg>
+              </span>
+              Garuda Sentinel
+            </div>
+            <div class="matrix__cell" role="columnheader">Snort / Suricata</div>
+            <div class="matrix__cell" role="columnheader">Cloud SIEM</div>
+          </div>
+
+          <!-- Row 1 -->
+          <div class="matrix__row" role="row">
+            <div class="matrix__cell matrix__cell--label" role="rowheader">Air-Gapped Operation</div>
+            <div class="matrix__cell matrix__cell--featured" role="cell">
+              <span class="matrix__status matrix__status--yes">Full support</span>
+            </div>
+            <div class="matrix__cell" role="cell">
+              <span class="matrix__status matrix__status--partial">Partial</span>
+            </div>
+            <div class="matrix__cell" role="cell">
+              <span class="matrix__status matrix__status--no">Cloud-required</span>
+            </div>
+          </div>
+
+          <!-- Row 2 -->
+          <div class="matrix__row" role="row">
+            <div class="matrix__cell matrix__cell--label" role="rowheader">Zero-Day Detection</div>
+            <div class="matrix__cell matrix__cell--featured" role="cell">
+              <span class="matrix__status matrix__status--yes">Isolation Forest</span>
+            </div>
+            <div class="matrix__cell" role="cell">
+              <span class="matrix__status matrix__status--no">Signature-only</span>
+            </div>
+            <div class="matrix__cell" role="cell">
+              <span class="matrix__status matrix__status--partial">Limited</span>
+            </div>
+          </div>
+
+          <!-- Row 3 -->
+          <div class="matrix__row" role="row">
+            <div class="matrix__cell matrix__cell--label" role="rowheader">Explainable AI</div>
+            <div class="matrix__cell matrix__cell--featured" role="cell">
+              <span class="matrix__status matrix__status--yes">SHAP · Bahasa Indonesia</span>
+            </div>
+            <div class="matrix__cell" role="cell">
+              <span class="matrix__status matrix__status--no">Rule-based only</span>
+            </div>
+            <div class="matrix__cell" role="cell">
+              <span class="matrix__status matrix__status--partial">English-only</span>
+            </div>
+          </div>
+
+          <!-- Row 4 -->
+          <div class="matrix__row" role="row">
+            <div class="matrix__cell matrix__cell--label" role="rowheader">Edge Deployment</div>
+            <div class="matrix__cell matrix__cell--featured" role="cell">
+              <span class="matrix__status matrix__status--yes">&lt;500MB RAM</span>
+            </div>
+            <div class="matrix__cell" role="cell">
+              <span class="matrix__status matrix__status--partial">Heavier footprint</span>
+            </div>
+            <div class="matrix__cell" role="cell">
+              <span class="matrix__status matrix__status--no">Cloud-required</span>
+            </div>
+          </div>
+
+          <!-- Row 5 -->
+          <div class="matrix__row" role="row">
+            <div class="matrix__cell matrix__cell--label" role="rowheader">Setup Time</div>
+            <div class="matrix__cell matrix__cell--featured" role="cell">
+              <span class="matrix__status matrix__status--yes">&lt;2 menit</span>
+            </div>
+            <div class="matrix__cell" role="cell">
+              <span class="matrix__status matrix__status--partial">Konfigurasi kompleks</span>
+            </div>
+            <div class="matrix__cell" role="cell">
+              <span class="matrix__status matrix__status--no">Berjam-jam</span>
+            </div>
+          </div>
+
+          <!-- Row 6 -->
+          <div class="matrix__row" role="row">
+            <div class="matrix__cell matrix__cell--label" role="rowheader">Active Response</div>
+            <div class="matrix__cell matrix__cell--featured" role="cell">
+              <span class="matrix__status matrix__status--yes">One-Click Isolation</span>
+            </div>
+            <div class="matrix__cell" role="cell">
+              <span class="matrix__status matrix__status--partial">Rule-based block</span>
+            </div>
+            <div class="matrix__cell" role="cell">
+              <span class="matrix__status matrix__status--partial">Agent-dependent</span>
+            </div>
+          </div>
+
+        </div>
+
+        <p class="matrix__footnote">
+          <strong>Catatan:</strong> Perbandingan berdasarkan use-case operasional militer
+          pada lingkungan DIL (Disconnected, Intermittent, Limited). Setiap solusi
+          memiliki keunggulan pada domainnya masing-masing.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- ──────────────────────────────────────────
+         AKSES / DEPLOYMENT
+         ────────────────────────────────────────── -->
+    <section class="section" id="akses">
+      <div class="container">
+
+        <header class="section-header">
+          <span class="section-eyebrow">05 · Akses</span>
           <h2 class="section-title">Dua jalur deployment. Satu sistem.</h2>
           <p class="section-lead">
             Untuk demo online atau operasi lapangan — pilih sesuai konteks Anda.
             Keduanya menjalankan kode yang identik.
           </p>
         </header>
+
+        <!-- ══════════════════════════════════════════════
+             NEW: JURY CALLOUT — Download Guide
+             ══════════════════════════════════════════════ -->
+        <aside class="jury-callout" aria-labelledby="jury-callout-title">
+
+          <div class="jury-callout__header">
+            <span class="jury-callout__badge">
+              <span class="jury-callout__badge-dot" aria-hidden="true"></span>
+              UNTUK DEWAN JURI
+            </span>
+            <h3 class="jury-callout__title" id="jury-callout-title">
+              Mau uji coba tapi tidak punya file?
+            </h3>
+            <p class="jury-callout__desc">
+              Kami sudah siapkan file <code>juri_test_stream.csv</code> — trace trafik
+              jaringan dengan anomali tersisipkan. Unduh di bawah, lalu unggah di panel
+              <strong>UJI DATA KUSTOM (JURI)</strong> pada live dashboard.
+            </p>
+          </div>
+
+          <div class="jury-callout__actions">
+            <a href="https://github.com/aksaex/GarudaSentinel/raw/main/juri_test_stream.csv"
+               class="btn btn--secondary"
+               download
+               aria-label="Download file juri_test_stream.csv">
+              <svg class="btn__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M8 2V10M8 10L4 6M8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2 12V13C2 13.5523 2.44772 14 3 14H13C13.5523 14 14 13.5523 14 13V12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+              Download File Uji (CSV)
+            </a>
+            <a href="https://garudasentinel.streamlit.app/"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="btn btn--primary"
+               aria-label="Buka live dashboard di tab baru">
+              Buka Live Dashboard
+              <svg class="btn__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+
+          <ol class="jury-callout__steps">
+            <li>
+              <span class="jury-callout__step-num">1</span>
+              <span>Download <code>juri_test_stream.csv</code> di atas</span>
+            </li>
+            <li>
+              <span class="jury-callout__step-num">2</span>
+              <span>Klik <strong>Buka Live Dashboard</strong></span>
+            </li>
+            <li>
+              <span class="jury-callout__step-num">3</span>
+              <span>Unggah di sidebar <strong>UJI DATA KUSTOM (JURI)</strong> → amati Threat Cards muncul</span>
+            </li>
+          </ol>
+
+        </aside>
 
         <div class="access-grid">
 
