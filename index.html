@@ -916,8 +916,11 @@ open http://localhost:8501</code></pre>
             <pre class="access-card__code"><code># Clone &amp; build offline
 git clone https://github.com/aksaex/garuda-sentinel
 cd garuda-sentinel
-docker compose -f compose.offline.yml up -d
-
+# Build & jalankan sistem di background
+docker compose up -d --build
+# Pantau log secara real-time (Opsional)
+docker compose logs -f
+# Akses Command Center: http://localhost:8501</code></pre>
 # Air-gapped ready. No telemetry.</code></pre>
 
             <a href="https://github.com/aksaex/garuda-sentinel"
