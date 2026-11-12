@@ -1,7 +1,8 @@
 /* ═══════════════════════════════════════════════════════════════
    GARUDA SENTINEL // SCRIPT.JS
-   Interactive Layer — v1.0
+   Interactive Layer — v1.1
    Kartika Cyber Hackathon 2026
+   v1.1: Tambah reveal selector untuk Roadmap + Sovereign Statement
    ═══════════════════════════════════════════════════════════════ */
 
 (() => {
@@ -24,7 +25,6 @@
 
   /* ══════════════════════════════════════════════
      MODULE 1 — NAVBAR SCROLL DETECTION
-     Toggle .is-scrolled untuk glassmorphism
      ══════════════════════════════════════════════ */
   function initNavbarScroll() {
     const navbar = document.getElementById('navbar');
@@ -45,13 +45,11 @@
       }
     }, { passive: true });
 
-    // Initial state (in case page loads scrolled)
     update();
   }
 
   /* ══════════════════════════════════════════════
      MODULE 2 — MOBILE MENU TOGGLE
-     Open/close, auto-close on link click, ESC, outside, resize
      ══════════════════════════════════════════════ */
   function initMobileMenu() {
     const toggle = document.getElementById('nav-toggle');
@@ -81,15 +79,12 @@
       isOpen ? close() : open();
     }
 
-    // Toggle button
     toggle.addEventListener('click', toggleMenu);
 
-    // Close on any nav link click
     menu.querySelectorAll('.navbar__link').forEach(link => {
       link.addEventListener('click', close);
     });
 
-    // Close on Escape
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && menu.classList.contains('is-open')) {
         close();
@@ -97,14 +92,12 @@
       }
     });
 
-    // Close on click outside navbar
     document.addEventListener('click', (e) => {
       if (!menu.classList.contains('is-open')) return;
       if (navbar.contains(e.target)) return;
       close();
     });
 
-    // Close on resize to desktop
     window.addEventListener('resize', () => {
       if (window.innerWidth >= 768 && menu.classList.contains('is-open')) {
         close();
@@ -114,7 +107,7 @@
 
   /* ══════════════════════════════════════════════
      MODULE 3 — SCROLL REVEAL
-     Fade in elements as they enter viewport
+     v1.1: ditambahkan .roadmap-card & .sovereign-statement
      ══════════════════════════════════════════════ */
   const REVEAL_SELECTORS = [
     '.section-header',
@@ -125,6 +118,8 @@
     '.perf-card',
     '.perf-note',
     '.access-card',
+    '.roadmap-card',
+    '.sovereign-statement',
     '.founder__photo',
     '.founder__content'
   ];
@@ -136,13 +131,11 @@
 
     if (!targets.length) return;
 
-    // Fallback for reduced-motion or no IO support
     if (prefersReducedMotion || !supportsIO) {
       targets.forEach(el => el.classList.add('reveal', 'is-visible'));
       return;
     }
 
-    // Auto-tag .reveal (only after JS active — progressive enhancement)
     targets.forEach(el => el.classList.add('reveal'));
 
     const io = new IntersectionObserver((entries) => {
@@ -162,7 +155,6 @@
 
   /* ══════════════════════════════════════════════
      MODULE 4 — METRIC COUNTER ANIMATION
-     Animasi angka dari 0 → data-target
      ══════════════════════════════════════════════ */
   function easeOutCubic(t) {
     return 1 - Math.pow(1 - t, 3);
@@ -227,8 +219,6 @@
 
   /* ══════════════════════════════════════════════
      MODULE 5 — NAV ACTIVE STATE
-     Highlight menu sesuai section di viewport
-     Scroll-based untuk presisi lebih baik
      ══════════════════════════════════════════════ */
   function getAbsoluteTop(el) {
     return el.getBoundingClientRect().top + window.scrollY;
@@ -254,7 +244,6 @@
       const probeLine = window.scrollY + CONFIG.counterOffset;
       let activeSection = null;
 
-      // Find section that contains the probe line
       for (const item of sections) {
         const top = getAbsoluteTop(item.section);
         const bottom = top + item.section.offsetHeight;
@@ -265,7 +254,6 @@
         }
       }
 
-      // If past all sections, keep last one active
       if (!activeSection) {
         const last = sections[sections.length - 1];
         if (probeLine >= getAbsoluteTop(last.section)) {
@@ -273,7 +261,6 @@
         }
       }
 
-      // Apply active state
       sections.forEach(item => {
         item.link.classList.toggle('is-active', item === activeSection);
       });
@@ -288,12 +275,11 @@
       }
     }, { passive: true });
 
-    update(); // Initial
+    update();
   }
 
   /* ══════════════════════════════════════════════
      MODULE 6 — SMOOTH SCROLL FALLBACK
-     Hanya aktif jika CSS scroll-behavior tidak support
      ══════════════════════════════════════════════ */
   function initSmoothScrollFallback() {
     if ('scrollBehavior' in document.documentElement.style) return;
@@ -308,7 +294,7 @@
 
         e.preventDefault();
 
-        const offset = 88; // navbar height + padding
+        const offset = 88;
         const top = getAbsoluteTop(target) - offset;
 
         window.scrollTo({ top, behavior: 'smooth' });
@@ -318,7 +304,6 @@
 
   /* ══════════════════════════════════════════════
      SAFE INIT WRAPPER
-     Satu modul error tidak menjatuhkan yang lain
      ══════════════════════════════════════════════ */
   function safe(fn) {
     try {
